@@ -3,11 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="externalResources/bootstrap-3.3.6-dist/css/bootstrap.css">
+    <script src="externalResources/angular.js"></script>
+    <script src="app.js"></script>
+    <script src="js/blogController.js"></script>
+    <script src="js/blogEntry.js"></script>
+
     <title>Angular Blog</title>
 </head>
-<body>
-<div class="container">
+<body ng-app="angularBlog">
+<div class="container" ng-controller="BlogController">
 
     <div class="page-header">
         <h1>Test Blog</h1>
@@ -17,14 +23,7 @@
 
         <!-- Blog Post -->
         <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3>Post Title(make dynamic with ng-repeat/directive</h3>
-                </div>
-                <div class="panel-body">
-                    <p>Content goes here</p>
-                </div>
-            </div>
+            <blog-entry ng-repeat="entry in entries | orderBy : '-datePub'" entry-info="entry" id="{{ $index }}"></blog-entry>
         </div>
 
         <div class="col-md-4">
@@ -43,8 +42,9 @@
                 <div class="panel-heading">
                     <h4>Blog Archive</h4>
                 </div>
-                <div class="panel-body">
-                    ***Fill in***
+                <div class="panel-body" ng-view>
+                    <!--Router-->
+                    <a ng-href=""></a>
                 </div>
             </div>
         </div>
