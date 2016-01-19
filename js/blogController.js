@@ -1,5 +1,5 @@
 /** Created by annaharr on 1/19/16. ...*/
-angularBlog.controller("BlogController", ["$scope", function($scope) {
+angularBlog.controller("BlogController", ["$scope", "$uibModal", function($scope, $uibModal) {
     $scope.entries = [
         {
             pk : 0, //for future django work
@@ -14,4 +14,22 @@ angularBlog.controller("BlogController", ["$scope", function($scope) {
             content : "Vivamus magna sem, tristique id posuere in, fringilla in arcu. Proin eleifend nisl eu felis facilisis, in ultrices enim commodo. Suspendisse molestie justo magna, sed iaculis felis tristique quis. Duis egestas rutrum lacinia. Curabitur congue, velit non suscipit consectetur, enim lacus bibendum nibh, sit amet auctor enim ipsum vitae lorem. Vestibulum non tellus quis tortor sollicitudin pulvinar eget sit amet orci. Integer odio odio, maximus ac lorem ut, volutpat luctus justo. Vestibulum feugiat turpis turpis, eu mollis dolor lacinia vitae. Fusce aliquam bibendum elementum. Etiam sit amet magna sit amet elit porttitor vehicula. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Pellentesque massa est, consectetur eget posuere sed, congue quis arcu. Morbi efficitur congue metus faucibus maximus. Quisque interdum tincidunt scelerisque. Pellentesque varius elit ac erat faucibus, quis commodo libero interdum."
         }
     ];
+
+    //Instantiating the New Entry Form modal.
+    $scope.open = function () {
+
+        var modalInstance = $uibModal.open({
+            templateUrl: 'newEntryForm.html',
+            controller: 'ModalController',
+            size: "lg",
+            backdrop: "static",
+            keyboard: false
+        });
+
+        modalInstance.result.then(function (newBlogEntry) {
+            $scope.entries.push(newBlogEntry);
+        });
+    };
 }]);
+
+
