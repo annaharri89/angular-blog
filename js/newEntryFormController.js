@@ -9,9 +9,8 @@ angularBlog.controller('NewEntryFormController', ["$scope", "$uibModalInstance",
     $scope.entry.body = "";
     $scope.alert = false;
 
-    $scope
     $scope.submitPost = function () {
-        if ($scope.entry.title.length >= 1 && $scope.entry.body.length >= 1) {
+        if ($scope.entry.title.length >= 1 && $scope.entry.body.length >= 1) {//Form Validation
             $uibModalInstance.close($scope.entry);//Sends data (entry) to parent scope.
         }
         else { {{$scope.alert = true }} }
