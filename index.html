@@ -23,10 +23,8 @@
 
     <div class="row">
         <!-- Blog Post -->
-        <!--The orderBy filter uses the -datePub expression
-             to filter dates in reverse.-->
+        <!--The orderBy filter uses the -datePub expression to filter dates in reverse.-->
         <div class="col-md-8">
-            <!--Maybe use a modal to display new blog form-->
             <blog-entry ng-repeat="entry in entries | orderBy : '-datePub'" entry-info="entry"></blog-entry>
         </div>
 
@@ -51,7 +49,7 @@
                     <h4>Blog Archive</h4>
                 </div>
                 <div class="panel-body">
-                    <p>Fill in</p>
+                    <p><!--TODO: Fill in--></p>
                 </div>
             </div>
         </div>
