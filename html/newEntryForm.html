@@ -4,12 +4,16 @@
 </div>
 
 <div class="modal-body">
+    <div  ng-if="alert" class="alert alert-danger" role="alert">
+        <button type="button" class="close"></button>
+        Sorry, you can't make an empty blog entry.
+    </div>
     <form>
         <div class="form-group">
             <label for="et">Entry Title:</label>
-            <input type="text" class="form-control" id="et" placeholder="Put your title here." ng-model="entry.title">
+            <input type="text" class="form-control" id="et" placeholder="Put your title here." ng-model="entry.title" required>
             <label for="eb">Entry Body:</label>
-            <textarea rows="10" class="form-control" id="eb" cols="30" placeholder="Put your content here." ng-model="entry.body"></textarea>
+            <textarea rows="10" class="form-control" id="eb" cols="30" placeholder="Put your content here." ng-model="entry.body" required></textarea>
         </div>
     </form>
 </div>
