@@ -10,9 +10,9 @@
     </div>
     <form>
         <div class="form-group">
-            <!--TODO: make title max char allowed to be 50 chars to match backend requirement-->
             <label for="et">Entry Title:</label>
-            <input type="text" class="form-control" id="et" placeholder="Put your title here." ng-model="entry.title" required>
+            <!--TODO: make 'maxlength' compatible with safari-->
+            <input type="text" maxlength="140" class="form-control" id="et" placeholder="Put your title here." ng-model="entry.title" required>
             <label for="eb">Entry Body:</label>
             <textarea rows="10" class="form-control" id="eb" cols="30" placeholder="Put your content here." ng-model="entry.body" required></textarea>
         </div>
