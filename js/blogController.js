@@ -4,7 +4,6 @@ angularBlog.controller("BlogController", ["$scope", "$uibModal", "BlogRestServic
 
     var entries = BlogRestService.get(function() {
         $scope.entries = entries.results;//Gets the array of results. This might break if backend is changed.
-        console.log(entries);
     }); //query() returns all the entries
 
     //Instantiating the New Entry Form modal.
@@ -19,7 +18,10 @@ angularBlog.controller("BlogController", ["$scope", "$uibModal", "BlogRestServic
         });
 
         modalInstance.result.then(function (entry) {
-            $scope.entries.push(entry);
+            //Resets array so that new blog entries will show up at the top of the page.
+            entries = BlogRestService.get(function() {
+                $scope.entries = entries.results;
+            });
         });
     };
 }]);
