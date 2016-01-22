@@ -1,2 +1,2 @@
 # angular-blog
-A demonstration of angular
+A demonstration of AngularJS and Bootstrap
